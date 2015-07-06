@@ -1,0 +1,80 @@
+<h1>New User</h1>
+
+<div class="row">
+  <form class="col-xs-12">
+    <h2>User information</h2>
+    <div class="row">
+      
+      <div class="col-sm-4">
+        <fieldset class="form-group">
+          <label for="firstName">First Name</label>
+          <input class="form-control" type="text" id="firstName" name="firstName" placeholder="Enter the user first name" ng-model="user.firstName">
+        </fieldset>
+      </div>
+
+      <div class="col-sm-4">
+        <fieldset class="form-group">
+          <label for="lastName">Last Name</label>
+          <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Enter the user last name" ng-model="user.lastName">
+        </fieldset>
+      </div>
+      
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-6">
+        <fieldset class="form-group">
+          <label for="Picture">Picture</label>
+          <input class="form-control" type="text" id="picture" name="picture" placeholder="Enter the user picture" ng-model="user.picture">
+        </fieldset>
+      </div>
+
+    </div>
+
+    <div class="row">
+        
+      <div class="col-sm-4">
+        <fieldset class="form-group">
+          <label for="role">Role</label>
+          <input class="form-control" type="text" id="role" name="role" placeholder="Enter the user role" ng-model="user.role">
+        </fieldset>
+      </div>
+
+      <div class="col-sm-4">
+        <fieldset class="form-group">
+          <label for="attachment">Attachment</label>
+          <select class="form-control" ng-options="plant.id as plant.name for plant in plants" ng-model="user.attachment"></select>
+        </fieldset>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-4">
+        <fieldset class="form-group">
+          <label for="mail">Mail</label>
+          <input class="form-control" type="text" id="mail" name="mail" placeholder="Enter the user mail" ng-model="user.mail">
+        </fieldset>
+      </div>
+
+      <div class="col-sm-4">
+        <fieldset class="form-group">
+          <label for="tel">Tel</label>
+          <input class="form-control" type="text" id="tel" name="tel" placeholder="Enter the user tel" ng-model="user.tel">
+        </fieldset>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <input type="submit" value="{{isSubmitting ? 'saving user...' : 'Save user'}}" class="btn btn-default" ng-click="saveUser(user)" ng-disabled="isSubmitting">
+      </div>
+    </div>
+
+  </form>
+</div>
+
+

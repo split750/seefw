@@ -1,7 +1,7 @@
 angular.module('NoteWrangler').config(function($routeProvider){
   $routeProvider
     .when('/', {
-      redirectTo: '/notes'
+      templateUrl: "assets/templates/home.html"
     })
 
     .when('/notes', {
@@ -29,9 +29,19 @@ angular.module('NoteWrangler').config(function($routeProvider){
       controller: "UsersIndexController"
     })
 
+    .when('/users/new', {
+      templateUrl: "assets/templates/users/new.html",
+      controller: "UsersCreateController"
+    })
+
     .when('/users/:id', {
       templateUrl: "assets/templates/users/show.html",
       controller: "UsersShowController"
+    })
+
+    .when('/users/:id/edit', {
+      templateUrl: "assets/templates/users/edit.html",
+      controller: "UsersEditController"
     })
 
     .when('/about', {

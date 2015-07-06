@@ -19,11 +19,11 @@ require('./server/routes/contractType')(app);
 
 
 
-app.use(express.static(path.join(__dirname, './public/')));
+app.use(express.static(path.join(__dirname, './app/')));
 
 
 app.get('/', function(req, res){
-  res.sendFile('index.html', { root: path.join(__dirname, './public/views/') });
+  res.sendFile('index.html', { root: path.join(__dirname, './app/views/') });
 });
 
 
