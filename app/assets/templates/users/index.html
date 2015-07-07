@@ -19,7 +19,7 @@
   <div ng-repeat="user in users | filter:search.input" class="col-sm-6">
     <h2>
         <!--<gravatar email="user.email"></gravatar>-->
-        <a title="{{user.firstName}}" ng-href="#/users/{{user.id}}">{{user.firstName}} {{user.lastName}}</a>
+        <a title="{{user.firstName}}" ng-href="#/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a>
     </h2>
     <p><span class="label label-info">{{user.attachment}}</span></p>
   </div>
