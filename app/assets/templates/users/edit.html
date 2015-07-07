@@ -44,7 +44,7 @@
       <div class="col-sm-4">
         <fieldset class="form-group">
           <label for="attachment">Attachment</label>
-          <select class="form-control" ng-options="plant.id as plant.title for plant in plants" ng-model="user.attachment"></select>
+          <select class="form-control" ng-options="plant._id as plant.title for plant in plants" ng-model="user.attachment"></select>
         </fieldset>
       </div>
 
