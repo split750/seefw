@@ -3,6 +3,7 @@ angular.module('NoteWrangler').controller('UsersCreateController', function($sco
   $scope.isSubmitting = false;
   $scope.plants = Note.query();
 
+  console.log($scope.plants);
 
   $scope.saveUser = function(user){
     $scope.isSubmitting = true;
