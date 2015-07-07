@@ -5,7 +5,7 @@ angular.module('NoteWrangler').controller('UsersShowController', function(User, 
         
     Note.get({id: data.attachment}, function(data2) {
       $scope.plantName = data2.title;
-      console.log($scope.plantName);
+      console.log('user attachment : ' + $scope.plantName);
     });
 
   });
