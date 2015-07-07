@@ -3,4 +3,6 @@ angular.module('NoteWrangler').controller('UsersIndexController', function(Note,
 
   $scope.search = {};
 
+  $scope.plants = Note.query();
+
 });
