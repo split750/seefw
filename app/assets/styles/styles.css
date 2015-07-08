@@ -14,3 +14,110 @@
     width: 200px;
     margin-top: -22px;
 }
+
+.navbar-header {
+    margin-bottom: 0;
+}
+
+.navbar-nav a:hover {
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #444;
+}
+
+.home.row {
+    background-color: rgb(19, 30, 77);
+    color: #FFF;
+    border-top: 4px solid rgb(170, 220, 20);
+    padding: 40px 0;
+    box-shadow: 0 0 15px rgba(0,0,0,0.13);
+    margin: 0px -40px;
+}
+
+.suez-bg { position: relative; }
+
+.suez-bg:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    margin-right: -13.125em;
+    width: 23.125em;
+    height: 100%;
+    background: url(../images/generic-spiral-green1-273.png) no-repeat 0 50%;
+    content: '';
+}
+
+.content {
+    position: relative;
+    max-width: 980px;
+    background-color: #FFF;
+    box-shadow: 0 0 15px rgba(0,0,0,0.13);
+    padding: 10px 40px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.bordered { position: relative; }
+
+.bordered:before {
+    content: '';
+    height: 1px;
+    width: 20%;
+    background-color: rgb(19, 30, 77);
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.bordered:after {
+    content: '';
+    height: 1px;
+    width: 20%;
+    background-color: rgb(19, 30, 77);
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.relative {
+    position: relative;
+}
+
+.margin-bottom {
+    margin-bottom: 20px;
+}
+
+
+
+/*********** CHANGING TO FIT SUEZ COLOR ***************/
+
+body {
+    background-color: #F8F8F8;
+}
+
+.label-primary {
+    background-color: rgb(19, 30, 77);
+}
+
+.label-info {
+    background-color: rgb(19, 30, 77);
+}
+
+.green { color: rgb(170, 220, 20); }
+.blue { color: rgb(19, 30, 77); }
+
+.label.smaller {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+footer {
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    margin-top: 20px; 
+    padding-top: 20px;
+}

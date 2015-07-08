@@ -1,30 +1,34 @@
-<!--
-<div class="row">
-    <div class="col-md-6">
-        <h1>{{user.name}}</h1><br>
-        <a ng-href="{{user.site}}">{{user.site}}</a>
-        <p>{{user.bio}}</p>
+<div class="content">
+
+    <!--
+    <div class="row">
+        <div class="col-md-6">
+            <h1>{{user.name}}</h1><br>
+            <a ng-href="{{user.site}}">{{user.site}}</a>
+            <p>{{user.bio}}</p>
+        </div>
     </div>
-</div>
--->
+    -->
 
-<div class="row">
-    <div class="col-md-7">
-        <h1>{{user.firstName}} {{user.lastName}}</h1><br>
-        <p>Picture : <span>{{user.picture}}</span></p>
-        <p>role : <span>{{user.role}}</span></p>
-        <p>attachment : <span>{{plantName}}</span></p>
+    <div class="row">
+        <div class="col-md-7">
+            <h1>{{user.firstName}} {{user.lastName}}</h1><br>
+            <p>Picture : <span>{{user.picture}}</span></p>
+            <p>role : <span>{{user.role}}</span></p>
+            <p>attachment : <span>{{plantName}}</span></p>
 
-        <p>mail : <span>{{user.mail}}</span></p>
-        <p>tel : <span>{{user.tel}}</span></p>
+            <p>mail : <span>{{user.mail}}</span></p>
+            <p>tel : <span>{{user.tel}}</span></p>
 
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-xs-12">
-        <hr>
-        <a ng-href="#/users/{{user._id}}/edit" class="btn btn-default">Edit User</a>
-        <!--<a href="" ng-click="deleteNote(note)" class="btn btn-danger">Delete Plant</a>-->
+    <div class="row">
+        <div class="col-xs-12">
+            <hr>
+            <a ng-href="#/users/{{user._id}}/edit" class="btn btn-default">Edit User</a>
+            <!--<a href="" ng-click="deleteNote(note)" class="btn btn-danger">Delete Plant</a>-->
+        </div>
     </div>
+
 </div>

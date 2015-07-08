@@ -1,26 +1,28 @@
-<div class="row">
-  <div class="col-xs-12">
-    <h1><span class="label label-primary">{{ users.length }}</span> Users are listed | <a class="btn btn-default" href="#/users/new">New User</a></h1>
-  </div>
-</div>
-
-<div class="row">
-    <div class="col-xs-4">
-        <br>
-        <div class="input-group">
-          <input type='text' class="form-control" placeholder="Search user ..." ng-model="search.input.$">
-          <span class="input-group-btn"><button class="btn btn-default" type="button">Search !</button></span>
-        </div>
+<div class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1><span class="label label-primary">{{ users.length }}</span> Users are listed | <a class="btn btn-default" href="#/users/new">New User</a></h1>
     </div>
-</div>
+  </div>
+
+  <div class="row">
+      <div class="col-xs-4">
+          <br>
+          <div class="input-group">
+            <input type='text' class="form-control" placeholder="Search user ..." ng-model="search.input.$">
+            <span class="input-group-btn"><button class="btn btn-default" type="button">Search !</button></span>
+          </div>
+      </div>
+  </div>
 
 
-<div class="row">
-  <div ng-repeat="user in users | filter:search.input" class="col-sm-6">
-    <h2>
-        <!--<gravatar email="user.email"></gravatar>-->
-        <a title="{{user.firstName}}" ng-href="#/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a>
-    </h2>
-    <p><span class="label label-info">{{plant.title}}</span></p>
+  <div class="row">
+    <div ng-repeat="user in users | filter:search.input" class="col-sm-6">
+      <h2>
+          <!--<gravatar email="user.email"></gravatar>-->
+          <a title="{{user.firstName}}" ng-href="#/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a>
+      </h2>
+      <p><span class="label label-info">{{plant.title}}</span></p>
+    </div>
   </div>
 </div>
