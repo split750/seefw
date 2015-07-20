@@ -6,6 +6,33 @@ var app = express();
 var path = require('path');
 
 
+// --------------------------------- //
+//        Login requierments         //
+// --------------------------------- //
+
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+
+app.use(require('express-session')({
+    secret: 'SuezEnvDTPEfW secret',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// passport config
+var Account = require('./server/models/account');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
+
+
+
+
 // Load Express Configuration
 require('./server/expressConfig')(app, express);
 
@@ -16,6 +43,7 @@ require('./server/routes/note')(app); // note routes
 require('./server/routes/category')(app); // category routes
 require('./server/routes/wasteType')(app);
 require('./server/routes/contractType')(app);
+require('./server/routes/auth')(app);
 
 
 
@@ -36,3 +64,9 @@ var server = require('http').createServer(app);
 server.listen(port, function() {
  console.log('Listening on port : ' + port);
 });
+
+
+
+
+
+

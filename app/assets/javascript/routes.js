@@ -47,6 +47,6 @@ angular.module('NoteWrangler').config(function($routeProvider){
     .when('/about', {
       templateUrl: "assets/templates/about.html",
       //controller: "AboutController"
-    });
-
+    })
+    .otherwise('/');
 });

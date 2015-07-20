@@ -6,19 +6,30 @@
     <link rel="stylesheet" href="assets/styles/styles.css"></link>
   </head>
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <div class="navbar-brand">
-            <a class="logo" href="/#/" title="SE EfW App">
-              <img src="assets/images/logo.png" alt="SE EfW App">
-            </a>
-          </div>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <div class="container-fluid">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <div class="navbar-brand">
+              <a class="logo" href="/#/" title="SE EfW App">
+                <img src="assets/images/logo.png" alt="SE EfW App">
+              </a>
+            </div>
+
+          </div>
+          <nw-page-nav></nw-page-nav>
         </div>
-        <nw-page-nav></nw-page-nav>
-      </div>
-    </nav>
+      </nav>
+    </div>
     <div ng-view class="container-fluid"></div>
 
     <nw-footer></nw-footer>
