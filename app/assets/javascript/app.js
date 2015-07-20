@@ -5,6 +5,11 @@ angular.module('NoteWrangler', [
     'ui.bootstrap'
     ])
 
-    .config(function(GravatarProvider){
-        GravatarProvider.setSize(100);
+    .config(function(GravatarProvider, $routeProvider, $locationProvider, $httpProvider) {
+
+      GravatarProvider.setSize(100);
+
     });
+
+        
+

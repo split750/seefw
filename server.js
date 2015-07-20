@@ -6,31 +6,13 @@ var app = express();
 var path = require('path');
 
 
+
 // --------------------------------- //
 //        Login requierments         //
 // --------------------------------- //
 
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-
-
-app.use(require('express-session')({
-    secret: 'SuezEnvDTPEfW secret',
-    resave: false,
-    saveUninitialized: false
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-// passport config
-var Account = require('./server/models/account');
-passport.use(new LocalStrategy(Account.authenticate()));
-passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());
-
-
-
+var localStrategy = require('passport-local').Strategy;
 
 
 // Load Express Configuration
@@ -39,19 +21,47 @@ require('./server/expressConfig')(app, express);
 
 // Load routes
 require('./server/routes/user')(app); //user routes
-require('./server/routes/note')(app); // note routes
+require('./server/routes/note')(app, passport); // note routes
 require('./server/routes/category')(app); // category routes
 require('./server/routes/wasteType')(app);
 require('./server/routes/contractType')(app);
 require('./server/routes/auth')(app);
 
 
+// user schema/model
+var User = require('./server/models/user2.js');
+
+// configure passport
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
 
 app.use(express.static(path.join(__dirname, './app/')));
+
+app.engine('html', require('jade').renderFile);
+app.set('view engine', 'html');
 
 
 app.get('/', function(req, res){
   res.sendFile('index.html', { root: path.join(__dirname, './app/views/') });
+});
+
+
+// error handlers
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+app.use(function(err, req, res) {
+  res.status(err.status || 500);
+  res.end(JSON.stringify({
+    message: err.message,
+    error: {}
+  }));
 });
 
 

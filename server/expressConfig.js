@@ -4,6 +4,11 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 var http = require('http');
 var path = require('path');
+var passport = require('passport');
+var localStrategy = require('passport-local').Strategy;
+var expressSession = require('express-session');
+var hash = require('bcrypt-nodejs');
+
 
 module.exports = function(app, express) {
   // Serve static assets from the app folder. This enables things like javascript
@@ -29,7 +34,18 @@ module.exports = function(app, express) {
 
   app.use(cookieParser());
 
+  // Login set up
+  app.use(require('express-session')({
+    secret: 'SuezEnvDTPEfW',
+    resave: false,
+    saveUninitialized: false
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+
 };
+
+
 
 
 /********* DATABASE - MONGOLAB CONNECTION ********/
@@ -47,3 +63,5 @@ var dbOpened = db.once('open', function() {
     // Wait for the database connection to establish, then start the app.  
     console.log('connection to mongolab OK');   
 });
+
+

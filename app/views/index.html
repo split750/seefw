@@ -1,6 +1,7 @@
 <html ng-app="NoteWrangler">
   <head>
     <title>SE EfW App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/styles/bootstrap.css"></link>
     <link rel="stylesheet" href="assets/styles/bootstrap-theme.css"></link>
     <link rel="stylesheet" href="assets/styles/styles.css"></link>
@@ -15,23 +16,21 @@
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <div class="container-fluid">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <div class="navbar-brand">
-              <a class="logo" href="/#/" title="SE EfW App">
-                <img src="assets/images/logo.png" alt="SE EfW App">
-              </a>
-            </div>
-
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <a class="logo" href="/#/" title="SE EfW App">
+              <img src="assets/images/logo.png" alt="SE EfW App">
+            </a>
           </div>
-          <nw-page-nav></nw-page-nav>
-        </div>
-      </nav>
-    </div>
-    <div ng-view class="container-fluid"></div>
 
+        </div>
+        <nw-page-nav></nw-page-nav>
+      </div>
+    </nav>
+    
+    <div ng-view class="container-fluid"></div>
     <nw-footer></nw-footer>
 
   </body>
@@ -65,6 +64,7 @@
   <script src="assets/javascript/controllers/usersIndexController.js"></script>
   <script src="assets/javascript/controllers/usersEditController.js"></script>
   <script src="assets/javascript/controllers/usersCreateController.js"></script>
+  <script src="assets/javascript/controllers/authController.js"></script>
 
   <!-- Filters -->
   <script src="assets/javascript/filters/categoryFilter.js"></script>
@@ -75,4 +75,5 @@
   <script src="assets/javascript/services/category.js"></script>
   <script src="assets/javascript/services/wasteType.js"></script>
   <script src="assets/javascript/services/contractType.js"></script>
+  <script src="assets/javascript/services/auth.js"></script>
 </html>
