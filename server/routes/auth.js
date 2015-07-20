@@ -6,7 +6,7 @@ var User = require('../models/user2');
 
 module.exports = function(app) {
 
-    app.post('/register', function(req, res) {
+    app.post('/user/register', function(req, res) {
       User.register(new User({ username: req.body.username }), req.body.password, function(err, account) {
         if (err) {
           return res.status(500).json({err: err})
@@ -17,7 +17,7 @@ module.exports = function(app) {
       });
     });
 
-    app.post('/login', function(req, res, next) {
+    app.post('/user/login', function(req, res, next) {
       passport.authenticate('local', function(err, user, info) {
         if (err) { return next(err) }
         if (!user) {
@@ -32,7 +32,7 @@ module.exports = function(app) {
       })(req, res, next);
     });
 
-    app.get('/logout', function(req, res) {
+    app.get('/user/logout', function(req, res) {
       req.logout();
       res.status(200).json({status: 'Bye!'})
     });
