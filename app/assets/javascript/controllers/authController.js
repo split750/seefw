@@ -49,16 +49,20 @@ angular.module('NoteWrangler').controller('logoutController',
 }]);
 
 angular.module('NoteWrangler').controller('registerController',
-  ['$scope', '$location', 'AuthService',
-  function ($scope, $location, AuthService) {
+  ['$scope', '$location', 'AuthService', 'Note',
+  function ($scope, $location, AuthService, Note) {
 
     console.log(AuthService.getUserStatus());
+
+    $scope.isSubmitting = false;
+    $scope.plants = Note.query();
 
     $scope.register = function () {
 
       // initial values
       $scope.error = false;
       $scope.disabled = true;
+      $scope.isSubmitting = true;
 
       // call register from service
       AuthService.register($scope.registerForm.username, $scope.registerForm.password)
@@ -66,6 +70,7 @@ angular.module('NoteWrangler').controller('registerController',
         .then(function () {
           $location.path('/login');
           $scope.disabled = false;
+          $scope.isSubmitting = false;
           $scope.registerForm = {};
         })
         // handle error
@@ -73,6 +78,7 @@ angular.module('NoteWrangler').controller('registerController',
           $scope.error = true;
           $scope.errorMessage = "Something went wrong!";
           $scope.disabled = false;
+          $scope.isSubmitting = false;
           $scope.registerForm = {};
         });
 

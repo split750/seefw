@@ -29,7 +29,7 @@ require('./server/routes/auth')(app);
 
 
 // user schema/model
-var User = require('./server/models/user2.js');
+var User = require('./server/models/userModel.js');
 
 // configure passport
 passport.use(new localStrategy(User.authenticate()));
