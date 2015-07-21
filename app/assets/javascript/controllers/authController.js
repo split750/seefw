@@ -71,7 +71,7 @@ angular.module('NoteWrangler').controller('registerController',
       AuthService.register(
         $scope.registerForm.firstName,
         $scope.registerForm.lastName,
-        $scope.registerForm.userame,
+        $scope.registerForm.username,
         $scope.registerForm.password,
         $scope.registerForm.picture,
         $scope.registerForm.role,
