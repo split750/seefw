@@ -50,12 +50,16 @@ angular.module('NoteWrangler').controller('logoutController',
 
 angular.module('NoteWrangler').controller('registerController',
   ['$scope', '$location', 'AuthService', 'Note',
-  function ($scope, $location, AuthService, Note) {
+  function ($scope, $location, AuthService, Note, $filter) {
 
     console.log(AuthService.getUserStatus());
 
     $scope.isSubmitting = false;
     $scope.plants = Note.query();
+
+    $scope.$watch('registerForm.lastName', function(val) {
+      $scope.registerForm.lastName = $filter('uppercase')(val); 
+    }, true);
 
     $scope.register = function () {
 
