@@ -68,7 +68,17 @@ angular.module('NoteWrangler').controller('registerController',
       console.log($scope.registerForm);
 
       // call register from service
-      AuthService.register($scope.registerForm)
+      AuthService.register(
+        $scope.registerForm.firstName,
+        $scope.registerForm.lastName,
+        $scope.registerForm.userame,
+        $scope.registerForm.password,
+        $scope.registerForm.picture,
+        $scope.registerForm.role,
+        $scope.registerForm.attachment,
+        $scope.registerForm.mail,
+        $scope.registerForm.tel
+      )
         // handle success
         .then(function () {
           $location.path('/login');
