@@ -54,6 +54,8 @@ angular.module('NoteWrangler').controller('registerController',
 
     console.log(AuthService.getUserStatus());
 
+    console.log($scope.registerForm);
+
     $scope.isSubmitting = false;
     $scope.plants = Note.query();
 
