@@ -54,8 +54,6 @@ angular.module('NoteWrangler').controller('registerController',
 
     console.log(AuthService.getUserStatus());
 
-    console.log($scope.registerForm);
-
     $scope.isSubmitting = false;
     $scope.plants = Note.query();
 
@@ -65,6 +63,9 @@ angular.module('NoteWrangler').controller('registerController',
       $scope.error = false;
       $scope.disabled = true;
       $scope.isSubmitting = true;
+
+      // logging values
+      console.log($scope.registerForm);
 
       // call register from service
       AuthService.register($scope.registerForm.username, $scope.registerForm.password)
