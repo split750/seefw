@@ -1,7 +1,8 @@
 angular.module('NoteWrangler').config(function($routeProvider){
   $routeProvider
     .when('/', {
-      templateUrl: "assets/templates/home.html"
+      templateUrl: "assets/templates/home.html",
+      controller: "HomeController",
     })
 
     .when('/notes', {

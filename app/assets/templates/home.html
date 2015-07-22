@@ -8,7 +8,7 @@
     </div>
 
     <div ng-controller="logoutController">
-        <a ng-click='logout()' class="btn btn-default">Logout</a>
+        <a ng-click='logout()' class="btn btn-default {{islogged ? 'visible' : 'hidden'}}">Logout</a>
     </div>
-    
+
 </div>

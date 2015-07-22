@@ -77,7 +77,7 @@ angular.module('NoteWrangler').factory('AuthService',
 
     }
 
-    function register(username, password, firstName, lastName, picture, role, attachment, mail, tel) {
+    function register(username, firstName, lastName, picture, role, attachment, mail, tel) {
 
       // create a new instance of deferred
       var deferred = $q.defer();
@@ -87,7 +87,6 @@ angular.module('NoteWrangler').factory('AuthService',
         firstName: firstName,
         lastName: lastName,
         username: username, 
-        password: password,
         picture: picture,
         role: role,
         attachment: attachment,
