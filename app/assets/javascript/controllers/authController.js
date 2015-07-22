@@ -49,7 +49,7 @@ angular.module('NoteWrangler').controller('logoutController',
 }]);
 
 angular.module('NoteWrangler').controller('registerController',
-  ['$scope', '$location', 'AuthService', 'Note',
+  ['$scope', '$location', 'AuthService', 'Note', '$filter',
   function ($scope, $location, AuthService, Note, $filter) {
 
     console.log(AuthService.getUserStatus());
