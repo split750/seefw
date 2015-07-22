@@ -25,6 +25,10 @@
     border-bottom: 2px solid #444;
 }
 
+.navbar-nav .btn {
+    margin-top: 8px;
+}
+
 .home.row {
     background-color: rgb(19, 30, 77);
     color: #FFF;
