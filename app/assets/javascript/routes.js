@@ -3,6 +3,7 @@ angular.module('NoteWrangler').config(function($routeProvider){
     .when('/', {
       templateUrl: "assets/templates/home.html",
       controller: "HomeController",
+      access: {restricted: false}
     })
 
     .when('/notes', {
@@ -75,9 +76,6 @@ angular.module('NoteWrangler').config(function($routeProvider){
       controller: 'registerController',
       access: {restricted: false}
     })
-
-    .when('/one', {template: '<h1>This is page one!</h1>'})
-    .when('/two', {template: '<h1>This is page two!</h1>'})
     
     .otherwise('/');
 })
