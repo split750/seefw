@@ -12,7 +12,6 @@ var User = new Schema({
     firstName: String,
     lastName: String,
     username: String,
-    password: String,
     picture: String,
     role: String,
     attachment : String,
