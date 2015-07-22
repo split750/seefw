@@ -58,7 +58,7 @@ angular.module('NoteWrangler').controller('registerController',
     $scope.plants = Note.query();
 
     
-    $scope.registerForm.lastName = $filter('uppercase')($scope.registerForm.lastName); 
+    $scope.registerForm.lastname = $filter('uppercase')($scope.registerForm.lastName); 
 
     $scope.register = function () {
 
@@ -75,7 +75,7 @@ angular.module('NoteWrangler').controller('registerController',
         $scope.registerForm.username,
         $scope.registerForm.password,
         $scope.registerForm.firstName,
-        $scope.registerForm.lastName,
+        $scope.registerForm.lastname,
         $scope.registerForm.picture,
         $scope.registerForm.role,
         $scope.registerForm.attachment,

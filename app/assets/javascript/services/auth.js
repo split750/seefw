@@ -85,7 +85,7 @@ angular.module('NoteWrangler').factory('AuthService',
       // send a post request to the server
       $http.post('/user/register', {
         firstName: firstName,
-        lastName: lastName,
+        lastName: lastname,
         username: username, 
         password: password,
         picture: picture,
