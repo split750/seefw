@@ -49,12 +49,10 @@ angular.module('NoteWrangler').controller('logoutController',
 }]);
 
 angular.module('NoteWrangler').controller('registerController',
-  ['$scope', '$location', 'AuthService', 'Note', '$filter',
-  function ($scope, $location, AuthService, Note, $filter) {
+  ['$scope', '$location', 'AuthService', 'Note',
+  function ($scope, $location, AuthService, Note) {
 
     console.log(AuthService.getUserStatus());
-    
-    console.log($scope.register.registerForm.lastName);
 
     $scope.isSubmitting = false;
     $scope.plants = Note.query();
@@ -67,8 +65,6 @@ angular.module('NoteWrangler').controller('registerController',
       $scope.disabled = true;
       $scope.isSubmitting = true;
 
-      $scope.registerForm.lastname = $filter('uppercase')($scope.registerForm.lastName); 
-
       // logging values
       console.log($scope.registerForm);
 
@@ -77,7 +73,7 @@ angular.module('NoteWrangler').controller('registerController',
         $scope.registerForm.username,
         $scope.registerForm.password,
         $scope.registerForm.firstName,
-        $scope.registerForm.lastname,
+        $scope.registerForm.lastName,
         $scope.registerForm.picture,
         $scope.registerForm.role,
         $scope.registerForm.attachment,
