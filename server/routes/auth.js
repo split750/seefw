@@ -40,6 +40,9 @@ module.exports = function(app, passport) {
 
     
     app.post('/user/login', function(req, res, next) {
+      console.log('req : ' + req);
+      console.log(user);
+
       passport.authenticate('login', function(err, user, info) {
         if (err) { return next(err) }
         if (!user) {
