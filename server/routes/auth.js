@@ -1,7 +1,16 @@
 
 var _ = require('lodash');
 
+var express = require('express');
+var app = express();
+
 var passport = require('passport');
+var LocalStrategy   = require('passport-local').Strategy;
+
+var User = require('../models/userModel');
+
+var bCrypt = require('bcrypt-nodejs');
+
 
 
 module.exports = function(app, passport) {
