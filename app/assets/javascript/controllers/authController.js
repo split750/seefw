@@ -34,13 +34,7 @@ angular.module('NoteWrangler').controller('logoutController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
-    $scope.islogged = AuthService.getUserStatus();
-    
-    console.log(AuthService.getUserStatus());
-
     $scope.logout = function () {
-
-      console.log(AuthService.getUserStatus());
 
       // call logout from service
       AuthService.logout()
@@ -55,8 +49,6 @@ angular.module('NoteWrangler').controller('logoutController',
 angular.module('NoteWrangler').controller('registerController',
   ['$scope', '$location', 'AuthService', 'Note',
   function ($scope, $location, AuthService, Note) {
-
-    console.log(AuthService.getUserStatus());
 
     $scope.isSubmitting = false;
     $scope.plants = Note.query();
