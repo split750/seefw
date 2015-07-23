@@ -7,26 +7,22 @@ var path = require('path');
 
 
 
+// Load Express Configuration
+require('./server/expressConfig')(app, express);
+
+
+// Load routes
+require('./server/routes');
+
+
+
+
 // --------------------------------- //
 //        Login requierments         //
 // --------------------------------- //
 
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
-
-
-// Load Express Configuration
-require('./server/expressConfig')(app, express);
-
-
-// Load routes
-require('./server/routes/user')(app); //user routes
-require('./server/routes/note')(app, passport); // note routes
-require('./server/routes/category')(app); // category routes
-require('./server/routes/wasteType')(app);
-require('./server/routes/contractType')(app);
-require('./server/routes/auth')(app);
-
 
 // user schema/model
 var User = require('./server/models/userModel.js');
@@ -38,14 +34,21 @@ passport.deserializeUser(User.deserializeUser());
 
 
 
+// Set app directory
 app.use(express.static(path.join(__dirname, './app/')));
 
+
+// Set engine template
 app.engine('html', require('jade').renderFile);
 app.set('view engine', 'html');
 
 
 app.get('/', function(req, res){
-  res.sendFile('index.html', { root: path.join(__dirname, './app/views/') });
+    res.sendFile('index.html', { 
+        root: path.join(__dirname, './app/views/'), 
+        user: req.User,
+        status: 'Hello !' 
+    });
 });
 
 

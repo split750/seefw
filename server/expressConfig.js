@@ -35,11 +35,12 @@ module.exports = function(app, express) {
   app.use(cookieParser());
 
   // Login set up
-  app.use(require('express-session')({
+  app.use(expressSession({
     secret: 'SuezEnvDTPEfW',
     resave: false,
     saveUninitialized: false
   }));
+  
   app.use(passport.initialize());
   app.use(passport.session());
 

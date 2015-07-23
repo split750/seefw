@@ -28,7 +28,11 @@
         <div class="collapse navbar-collapse">
           <nw-page-nav></nw-page-nav>
           <div ng-controller="logoutController" class="nav navbar-nav navbar-right">
-              <a ng-click='logout()' class="btn btn-default {{islogged ? 'visible' : 'hidden'}}">Logout</a>
+              <p class="{{islogged ? 'visible' : 'hidden'}}">Welcome {{user.firstName}} 
+                <span>
+                  <a ng-click='logout()' class="btn btn-default {{islogged ? 'visible' : 'hidden'}}">Logout</a>
+                </span>
+              </p>
           </div>         
         </div>
       </div>

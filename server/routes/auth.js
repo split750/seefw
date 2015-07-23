@@ -25,6 +25,10 @@ module.exports = function(app) {
         });
     });
 
+    app.get('/user/login', function(req, res) {
+        res.status(200).json({ user : req.user });
+    });
+
     app.post('/user/login', function(req, res, next) {
       passport.authenticate('local', function(err, user, info) {
         if (err) { return next(err) }
