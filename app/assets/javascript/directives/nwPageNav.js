@@ -13,6 +13,11 @@ angular.module("NoteWrangler").directive('nwPageNav', function($rootScope, AuthS
       console.log(User);
       
       console.log(AuthService.isLoggedIn());
+
+      $scope.islogged = function () {
+        return AuthService.isLoggedIn();
+      };
+
     }
   };
 });
