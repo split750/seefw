@@ -80,14 +80,10 @@ angular.module('NoteWrangler').config(function($routeProvider){
     .otherwise('/');
 })
 
-.run(function ($rootScope, $location, $route, AuthService, $scope) {
+.run(function ($rootScope, $location, $route, AuthService) {
   $rootScope.$on('$routeChangeStart', function (event, next, current) {
     if (next.access.restricted && AuthService.isLoggedIn() === false) {
       $location.path('/login');
-      $scope.islogged = false;
-    };
-    if (next.access.restricted && AuthService.isLoggedIn() === true) {
-      $scope.islogged = true;
     }
   });
 });
