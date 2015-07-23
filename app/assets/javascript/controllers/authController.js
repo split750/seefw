@@ -3,6 +3,7 @@ angular.module('NoteWrangler').controller('loginController',
   function ($scope, $location, AuthService) {
 
     console.log(AuthService.getUserStatus());
+    console.log(AuthService.isLoggedIn());
 
     $scope.login = function () {
 
