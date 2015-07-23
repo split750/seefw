@@ -23,6 +23,9 @@ angular.module('NoteWrangler').factory('AuthService',
     }
 
     function getUserStatus() {
+      if(!user) {
+        return false
+      }
       return user;
     }
 

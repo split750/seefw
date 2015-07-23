@@ -35,7 +35,7 @@ module.exports = function(app) {
         if (!user) {
           return res.status(401).json({err: info})
         }
-        req.logIn(user, function(err) {
+        req.login(user, function(err) {
           if (err) {
             return res.status(500).json({err: 'Could not log in user'})
           }
