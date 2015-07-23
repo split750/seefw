@@ -1,3 +1,5 @@
+var express = require('express');
+var app = express();
 var path = require('path');
 
 // Load Express Configuration
@@ -5,12 +7,12 @@ var path = require('path');
 
 
 // Load routes
-require('./routes/user'); //user routes
-require('./routes/note'); // note routes
-require('./routes/category'); // category routes
-require('./routes/wasteType');
-require('./routes/contractType');
-require('./routes/auth');
+require('./routes/user')(app); //user routes
+require('./routes/note')(app); // note routes
+require('./routes/category')(app); // category routes
+require('./routes/wasteType')(app);
+require('./routes/contractType')(app);
+require('./routes/auth')(app);
 
 
 //module.exports = app;
