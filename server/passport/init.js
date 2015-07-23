@@ -11,7 +11,7 @@ module.exports = function(passport){
     });
 
     passport.deserializeUser(function(_id, done) {
-        User.findById(_id, function(err, user) {
+        User.findOne({'_id': id }, function(err, user) {
             console.log('deserializing user:',user);
             done(err, user);
         });
