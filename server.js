@@ -13,6 +13,7 @@ require('./server/expressConfig')(app, express);
 
 // Load routes
 //require('./server/routes')(app);
+
 require('./server/routes/user')(app); //user routes
 require('./server/routes/note')(app); // note routes
 require('./server/routes/category')(app); // category routes
@@ -25,8 +26,10 @@ require('./server/routes/auth')(app);
 //        Login requierments         //
 // --------------------------------- //
 
+/*
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
+
 
 // user schema/model
 var User = require('./server/models/userModel.js');
@@ -36,7 +39,7 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
+*/
 
 // Set app directory
 app.use(express.static(path.join(__dirname, './app/')));

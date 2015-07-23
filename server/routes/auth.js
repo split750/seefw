@@ -1,10 +1,12 @@
+
 var _ = require('lodash');
 
 var passport = require('passport');
 
 var User = require('../models/userModel');
 
-module.exports = function(app) {
+
+module.exports = function(app, passport) {
 
     app.post('/user/register', function(req, res) {
         var userItem = req.body;

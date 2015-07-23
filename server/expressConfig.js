@@ -11,7 +11,8 @@ var hash = require('bcrypt-nodejs');
 var MongoStore = require('connect-mongo')(expressSession);
 
 
-module.exports = function(app, express) {
+
+module.exports = function(app, express, passport) {
   // Serve static assets from the app folder. This enables things like javascript
   // and stylesheets to be loaded as expected. You would normally use something like
   // nginx for this, but this makes for a simpler demo app to just let express do it.
@@ -53,6 +54,25 @@ module.exports = function(app, express) {
 
   app.use(passport.initialize());
   app.use(passport.session());
+
+  // Initialize Passport
+  var initPassport = require('./passport/init');
+  initPassport(passport);  
+
+  /*
+  var routes = require('./routes/index')(passport);
+  app.use('/', routes);
+  */
+
+  var isAuthenticated = function (req, res, next) {
+    // if user is authenticated in the session, call the next() to call the next request handler 
+    // Passport adds this method to request object. A middleware is allowed to add properties to
+    // request and response objects
+    if (req.isAuthenticated())
+        return next();
+    // if the user is not authenticated then redirect him to the login page
+    res.redirect('/');
+  };
 
 };
 
