@@ -11,7 +11,7 @@ var hash = require('bcrypt-nodejs');
 var MongoStore = require('connect-mongo')(expressSession);
 
 
-module.exports = function(app, express, db) {
+module.exports = function(app, express) {
   // Serve static assets from the app folder. This enables things like javascript
   // and stylesheets to be loaded as expected. You would normally use something like
   // nginx for this, but this makes for a simpler demo app to just let express do it.
@@ -40,7 +40,7 @@ module.exports = function(app, express, db) {
       secret: 'SuezEnvDTPEfW',
       resave: false,
       saveUninitialized: false,
-      store: new MongoStore({ mongooseConnection: db })
+      store: new MongoStore({ mongooseConnection: mongoose.connection })
   }));
 
   /* Login set up
