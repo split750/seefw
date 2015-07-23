@@ -37,10 +37,10 @@ module.exports = function(app, passport) {
         });
         */
         passport.authenticate('signup', {
-          successRedirect: '/home',
-          failureRedirect: '/',
-          failureFlash : true  
-        }); 
+            
+        })(req, res, function () {
+              return res.status(200).json({status: 'Registration successful!'})
+            }); 
     });
 
     /* Handle Registration POST */
