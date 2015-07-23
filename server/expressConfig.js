@@ -8,9 +8,10 @@ var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var expressSession = require('express-session');
 var hash = require('bcrypt-nodejs');
+var MongoStore = require('connect-mongo')(expressSession);
 
 
-module.exports = function(app, express) {
+module.exports = function(app, express, db) {
   // Serve static assets from the app folder. This enables things like javascript
   // and stylesheets to be loaded as expected. You would normally use something like
   // nginx for this, but this makes for a simpler demo app to just let express do it.
@@ -36,11 +37,20 @@ module.exports = function(app, express) {
 
   // Login set up
   app.use(expressSession({
+      secret: 'SuezEnvDTPEfW',
+      resave: false,
+      saveUninitialized: false,
+      store: new MongoStore({ mongooseConnection: db })
+  }));
+
+  /* Login set up
+  app.use(expressSession({
     secret: 'SuezEnvDTPEfW',
     resave: false,
     saveUninitialized: false
   }));
-  
+  */
+
   app.use(passport.initialize());
   app.use(passport.session());
 
