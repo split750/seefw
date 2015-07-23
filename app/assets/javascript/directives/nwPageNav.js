@@ -1,4 +1,4 @@
-angular.module("NoteWrangler").directive('nwPageNav', function(AuthService, User){
+angular.module("NoteWrangler").directive('nwPageNav', function($rootScope, AuthService, User){
   return {
     replace: true,
     restrict: "E",
@@ -12,9 +12,14 @@ angular.module("NoteWrangler").directive('nwPageNav', function(AuthService, User
 
       console.log(AuthService.isLoggedIn());
 
-      $scope.islogged = AuthService.isLoggedIn();
+      
+    },
+    link: function(scope) {
+      $rootScope.$on('$routeChange', function (event, current, previos, rejection) {
+        $scope.islogged = AuthService.isLoggedIn();
 
-      console.log($scope.islogged);
+        console.log($scope.islogged);
+      })
     }
   };
 });
