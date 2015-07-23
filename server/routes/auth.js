@@ -32,7 +32,7 @@ module.exports = function(app, passport) {
     });
 
     app.post('/user/login', function(req, res, next) {
-      passport.authenticate('local', function(err, user, info) {
+      passport.authenticate('login', function(err, user, info) {
         if (err) { return next(err) }
         if (!user) {
           return res.status(401).json({err: info})
@@ -45,6 +45,15 @@ module.exports = function(app, passport) {
         });
       })(req, res, next);
     });
+
+    /* Handle Login POST */
+    /*
+    app.post('/user/login', passport.authenticate('login', {
+        successRedirect: '/home',
+        failureRedirect: '/',
+        failureFlash : true  
+    }));
+    */
 
     app.get('/user/logout', function(req, res) {
       req.logout();
