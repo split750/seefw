@@ -34,6 +34,10 @@ angular.module('NoteWrangler').controller('logoutController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
+    $scope.islogged = AuthService.getUserStatus();
+    
+    console.log(AuthService.getUserStatus());
+
     $scope.logout = function () {
 
       console.log(AuthService.getUserStatus());
