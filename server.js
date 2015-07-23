@@ -11,15 +11,7 @@ var path = require('path');
 require('./server/expressConfig')(app, express);
 
 
-// Load routes
-//require('./server/routes')(app);
 
-require('./server/routes/user')(app); //user routes
-require('./server/routes/note')(app); // note routes
-require('./server/routes/category')(app); // category routes
-require('./server/routes/wasteType')(app);
-require('./server/routes/contractType')(app);
-require('./server/routes/auth')(app);
 
 
 // --------------------------------- //
@@ -43,6 +35,17 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 */
+
+// Load routes
+//require('./server/routes')(app);
+
+require('./server/routes/user')(app); //user routes
+require('./server/routes/note')(app); // note routes
+require('./server/routes/category')(app); // category routes
+require('./server/routes/wasteType')(app);
+require('./server/routes/contractType')(app);
+require('./server/routes/auth')(app, passport);
+
 
 // Set app directory
 app.use(express.static(path.join(__dirname, './app/')));
