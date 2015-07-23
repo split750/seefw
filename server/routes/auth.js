@@ -58,21 +58,13 @@ module.exports = function(app, passport) {
 
     
     app.post('/user/login', function(req, res, next) {
-      console.log('req : ' + req);
-      console.log(user);
+      var userItem = req.body;
+      console.log('logging user: ' + JSON.stringify(userItem));
 
-      passport.authenticate('login', function(err, user, info) {
-        if (err) { return next(err) }
-        if (!user) {
-          return res.status(401).json({err: info})
-        }
-        req.login(user, function(err) {
-          if (err) {
-            return res.status(500).json({err: 'Could not log in user'})
-          }
-          res.status(200).json({status: 'Login successful!'})
-        });
-      })(req, res, next);
+      passport.authenticate('login')(req, res, function () {
+        return res.status(200).json({status: 'Login successful!'})
+      }); 
+      
     });
     
 
