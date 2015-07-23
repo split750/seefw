@@ -44,11 +44,13 @@ module.exports = function(app, passport) {
     });
 
     /* Handle Registration POST */
+    /*
     router.post('/signup', passport.authenticate('signup', {
         successRedirect: '/home',
         failureRedirect: '/signup',
         failureFlash : true  
     }));
+    */
 
     app.get('/user/login', function(req, res) {
         res.status(200).json({ user : req.user });
