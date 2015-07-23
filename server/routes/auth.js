@@ -51,14 +51,15 @@ module.exports = function(app, passport) {
     });
     */
 
+
     /* Handle Login POST */
-    
+    /*
     app.post('/user/login', passport.authenticate('login', {
-        successRedirect: '/',
+        successRedirect: '/top',
         failureRedirect: '/ping',
         failureFlash : true  
     }));
-    
+    */
 
     app.get('/user/logout', function(req, res) {
       req.logout();
