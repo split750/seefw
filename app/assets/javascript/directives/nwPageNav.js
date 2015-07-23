@@ -1,7 +1,6 @@
 angular.module("NoteWrangler").directive('nwPageNav', function($rootScope, AuthService, User){
   return {
     replace: true,
-    transclude : true,
     restrict: "E",
     templateUrl: "assets/templates/directives/nwPageNav.html",
     controller: function($scope, $location, AuthService){
@@ -11,17 +10,9 @@ angular.module("NoteWrangler").directive('nwPageNav', function($rootScope, AuthS
         return new RegExp("/" + name + "($|/)").test($location.path());
       };
 
+      console.log(User);
+      
       console.log(AuthService.isLoggedIn());
-
-      $scope.islogged = AuthService.isLoggedIn();
-            
-    },
-    link: function(scope) {
-      $rootScope.$on('$routeChange', function (event, current, previos, rejection) {
-        $scope.islogged = AuthService.isLoggedIn();
-
-        console.log($scope.islogged);
-      })
     }
   };
 });
