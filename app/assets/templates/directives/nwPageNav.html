@@ -13,12 +13,14 @@
                 <li ng-class="{'active': isPage('users')}"><a href="#/users">Users</a></li>
                 <li ng-class="{'active': isPage('about')}"><a href="#/about">About</a></li>
             </ul>
-            <div ng-controller="logoutController" class="nav navbar-nav navbar-right">
-                <p class="{{AuthService.isLoggedIn()? 'visible' : 'hidden'}}">Welcome {{User.firstName}} 
+            <p class="{{AuthService.isLoggedIn()? 'visible' : 'hidden'}}">Welcome {{User.firstName}} 
                     <span>
                         <a ng-click='logout()' class="btn btn-default {{islogged ? 'visible' : 'hidden'}}">Logout</a>
                     </span>
                 </p>
+                
+            <div ng-controller="logoutController" class="nav navbar-nav navbar-right">
+                
             </div>         
         </div>
     </div>
