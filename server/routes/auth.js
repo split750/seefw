@@ -1,15 +1,7 @@
 
 var _ = require('lodash');
 
-var passport = require('passport');
-
-var User = require('../models/userModel');
-
-var LocalStrategy = require('passport-local').Strategy;
-var bCrypt = require('bcrypt-nodejs');
-
-
-module.exports = function(app, passport) {
+module.exports = function(app) {
 
     app.post('/user/register', function(req, res) {
         var userItem = req.body;
@@ -34,7 +26,7 @@ module.exports = function(app, passport) {
         res.status(200).json({ user : req.user });
     });
 
-    /*
+    
     app.post('/user/login', function(req, res, next) {
       passport.authenticate('login', function(err, user, info) {
         if (err) { return next(err) }
@@ -49,7 +41,7 @@ module.exports = function(app, passport) {
         });
       })(req, res, next);
     });
-    */
+    
 
 
     /* Handle Login POST */
