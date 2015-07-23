@@ -12,7 +12,7 @@ var MongoStore = require('connect-mongo')(expressSession);
 
 
 
-module.exports = function(app, express, passport) {
+module.exports = function(app, express) {
   // Serve static assets from the app folder. This enables things like javascript
   // and stylesheets to be loaded as expected. You would normally use something like
   // nginx for this, but this makes for a simpler demo app to just let express do it.
@@ -52,9 +52,11 @@ module.exports = function(app, express, passport) {
   }));
   */
 
+  /*
   app.use(passport.initialize());
   app.use(passport.session());
-
+  */
+  
   // Initialize Passport
   var initPassport = require('./passport/init');
   initPassport(passport);  

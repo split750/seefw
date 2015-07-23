@@ -26,11 +26,14 @@ require('./server/routes/auth')(app);
 //        Login requierments         //
 // --------------------------------- //
 
-/*
+
 var passport = require('passport');
-var localStrategy = require('passport-local').Strategy;
+//var localStrategy = require('passport-local').Strategy;
 
+app.use(passport.initialize());
+app.use(passport.session());
 
+/*
 // user schema/model
 var User = require('./server/models/userModel.js');
 
