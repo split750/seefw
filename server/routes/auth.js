@@ -19,10 +19,13 @@ module.exports = function(app, passport) {
         var userItem = req.body;
         console.log('Adding user: ' + JSON.stringify(userItem));
         
+        
+        /*
         User.register(new User(
         /*{
             username: req.body.username,
         }*/
+        /*
         userItem), 
         req.body.password, function(err, account) {
             if (err) {
@@ -32,7 +35,20 @@ module.exports = function(app, passport) {
               return res.status(200).json({status: 'Registration successful!'})
             });
         });
+        */
+        passport.authenticate('signup', {
+          successRedirect: '/home',
+          failureRedirect: '/',
+          failureFlash : true  
+        }); 
     });
+
+    /* Handle Registration POST */
+    router.post('/signup', passport.authenticate('signup', {
+        successRedirect: '/home',
+        failureRedirect: '/signup',
+        failureFlash : true  
+    }));
 
     app.get('/user/login', function(req, res) {
         res.status(200).json({ user : req.user });
