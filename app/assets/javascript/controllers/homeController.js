@@ -4,6 +4,8 @@ angular.module('NoteWrangler').controller('HomeController', function($scope, $lo
   
   console.log(AuthService.isLoggedIn());
 
+  console.log($scope.islogged);
+
 
 
 

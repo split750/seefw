@@ -5,7 +5,7 @@ angular.module("NoteWrangler").directive('nwPageNav', function(AuthService, User
     templateUrl: "assets/templates/directives/nwPageNav.html",
     controller: function($scope, $location, AuthService){
       
-      
+
       $scope.isPage = function(name){
         return new RegExp("/" + name + "($|/)").test($location.path());
       };
@@ -13,6 +13,8 @@ angular.module("NoteWrangler").directive('nwPageNav', function(AuthService, User
       console.log(AuthService.isLoggedIn());
 
       $scope.islogged = AuthService.isLoggedIn();
+
+      console.log($scope.islogged);
     }
   };
 });
