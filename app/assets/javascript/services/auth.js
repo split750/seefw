@@ -17,10 +17,8 @@ angular.module('NoteWrangler').factory('AuthService',
     function isLoggedIn() {
         if(user) {
           return true;
-          $window.sessionStorage[“islogged”] = true;
         } else {
           return false;
-          $window.sessionStorage[“islogged”] = false;
         }
     }
 
