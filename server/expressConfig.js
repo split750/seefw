@@ -12,6 +12,25 @@ var MongoStore = require('connect-mongo')(expressSession);
 
 
 
+/********* DATABASE - MONGOLAB CONNECTION ********/
+
+var mongoose = require('mongoose');               // mongoose for mongodb
+var database = require('./database');      // load the database config
+
+mongoose.connect(database.url);   // connect to mongoDB database on modulus.io
+
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));  
+ 
+var dbOpened = db.once('open', function() {
+    // Wait for the database connection to establish, then start the app.  
+    console.log('connection to mongolab OK');   
+});
+
+
+
+
 module.exports = function(app, express) {
   // Serve static assets from the app folder. This enables things like javascript
   // and stylesheets to be loaded as expected. You would normally use something like
@@ -59,6 +78,20 @@ module.exports = function(app, express) {
   app.use(passport.session());
   */
 
+  var sessionOpts = {
+    saveUninitialized: true, // saved new sessions
+    resave: false, // do not automatically write to the session store
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    secret: 'SuezEnvDTPEfW',
+    cookie : { httpOnly: true, maxAge: 2419200000 } // configure when sessions expires
+  }
+
+  app.use(session(sessionOpts));
+
+  app.use(passport.initialize());
+  app.use(passport.session());
+
+
   // Initialize Passport
   var initPassport = require('./passport/init');
   initPassport(passport);  
@@ -83,20 +116,5 @@ module.exports = function(app, express) {
 
 
 
-/********* DATABASE - MONGOLAB CONNECTION ********/
-
-var mongoose = require('mongoose');               // mongoose for mongodb
-var database = require('./database');      // load the database config
-
-mongoose.connect(database.url);   // connect to mongoDB database on modulus.io
-
-var db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'connection error:'));  
- 
-var dbOpened = db.once('open', function() {
-    // Wait for the database connection to establish, then start the app.  
-    console.log('connection to mongolab OK');   
-});
 
 

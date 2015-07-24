@@ -22,9 +22,7 @@ require('./server/expressConfig')(app, express);
 var passport = require('passport');
 //var localStrategy = require('passport-local').Strategy;
 
-var expressSession = require('express-session');
-var MongoStore = require('connect-mongo')(expressSession);
-
+/*
 // Passport does not directly manage your session, it only uses the session.
 // So you configure session attributes (e.g. life of your session) via express
 var sessionOpts = {
@@ -39,6 +37,7 @@ app.use(session(sessionOpts));
 
 app.use(passport.initialize());
 app.use(passport.session());
+*/
 
 /*
 // user schema/model
