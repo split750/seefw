@@ -1,6 +1,6 @@
 angular.module('NoteWrangler').factory('AuthService',
-  ['$q', '$timeout', '$http',
-  function ($q, $timeout, $http) {
+  ['$q', '$timeout', '$http', '$window',
+  function ($q, $timeout, $http, $window) {
 
     // create user variable
     var user = null;
@@ -40,6 +40,7 @@ angular.module('NoteWrangler').factory('AuthService',
         .success(function (data, status) {
           if(status === 200 && data.status){
             user = true;
+            $window.sessionStorage["islogged"] = true;
             deferred.resolve();
           } else {
             user = false;
