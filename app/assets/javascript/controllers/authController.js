@@ -18,6 +18,7 @@ angular.module('NoteWrangler').controller('loginController',
           $location.path('/');
           $scope.disabled = false;
           $scope.loginForm = {};
+          $window.sessionStorage[“islogged”] = true;
         })
         // handle error
         .catch(function () {
@@ -40,6 +41,7 @@ angular.module('NoteWrangler').controller('logoutController',
       // call logout from service
       AuthService.logout()
         .then(function () {
+          $window.sessionStorage[“islogged”] = false;
           $location.path('/login');
         });
 
