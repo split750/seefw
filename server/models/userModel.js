@@ -18,8 +18,8 @@ var User = new Schema({
     attachment : String,
     mail: String,
     tel: String,
-    creationDate: date,
-    lastConnectionDate: date
+    creationDate: Date,
+    lastConnectionDate: Date
 });
 
 User.plugin(passportLocalMongoose);
