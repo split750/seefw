@@ -17,7 +17,9 @@ var User = new Schema({
     role: String,
     attachment : String,
     mail: String,
-    tel: String
+    tel: String,
+    creationDate: date,
+    lastConnectionDate: date
 });
 
 User.plugin(passportLocalMongoose);

@@ -37,6 +37,7 @@ module.exports = function(passport){
                         newUser.attachment = req.body.attachment;
                         newUser.tel = req.body.tel;
                         newUser.picture = req.body.picture;
+                        newUser.creationDate = new date();
 
                         // save the user
                         newUser.save(function(err) {
