@@ -68,6 +68,7 @@ angular.module('NoteWrangler').factory('AuthService',
         // handle success
         .success(function (data) {
           user = false;
+          $window.sessionStorage["islogged"] = false;
           deferred.resolve();
         })
         // handle error
