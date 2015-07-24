@@ -34,16 +34,18 @@ module.exports = function(app, express) {
   app.use(logger('dev'));
   app.use(methodOverride());
 
-  app.use(cookieParser());
+  app.use(cookieParser('SuezEnvDTPEfW'));
 
   // Login set up
+  /*
   app.use(expressSession({
       secret: 'SuezEnvDTPEfW',
       resave: false,
       saveUninitialized: false,
       store: new MongoStore({ mongooseConnection: mongoose.connection })
   }));
-
+  
+  */
   /* Login set up
   app.use(expressSession({
     secret: 'SuezEnvDTPEfW',
@@ -56,7 +58,7 @@ module.exports = function(app, express) {
   app.use(passport.initialize());
   app.use(passport.session());
   */
-  
+
   // Initialize Passport
   var initPassport = require('./passport/init');
   initPassport(passport);  

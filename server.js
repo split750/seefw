@@ -22,6 +22,19 @@ require('./server/expressConfig')(app, express);
 var passport = require('passport');
 //var localStrategy = require('passport-local').Strategy;
 
+
+// Passport does not directly manage your session, it only uses the session.
+// So you configure session attributes (e.g. life of your session) via express
+var sessionOpts = {
+  saveUninitialized: true, // saved new sessions
+  resave: false, // do not automatically write to the session store
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  secret: 'SuezEnvDTPEfW',
+  cookie : { httpOnly: true, maxAge: 2419200000 } // configure when sessions expires
+}
+
+app.use(session(sessionOpts));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -47,13 +60,14 @@ require('./server/routes/contractType')(app);
 require('./server/routes/auth')(app, passport);
 
 
-// Set app directory
-app.use(express.static(path.join(__dirname, './app/')));
-
-
 // Set engine template
 app.engine('html', require('jade').renderFile);
 app.set('view engine', 'html');
+
+
+// Set app directory
+app.use(express.static(path.join(__dirname, './app/')));
+
 
 
 app.get('/', function(req, res){
