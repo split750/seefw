@@ -86,7 +86,7 @@ module.exports = function(app, express) {
     cookie : { httpOnly: true, maxAge: 2419200000 } // configure when sessions expires
   }
 
-  app.use(session(sessionOpts));
+  app.use(expressSession(sessionOpts));
 
   app.use(passport.initialize());
   app.use(passport.session());
