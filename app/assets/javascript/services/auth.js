@@ -40,7 +40,7 @@ angular.module('NoteWrangler').factory('AuthService',
         .success(function (data, status) {
           if(status === 200 && data.status){
             user = true;
-            $window.sessionStorage["islogged"] = true;
+            $window.sessionStorage["user"] = user;
             deferred.resolve();
           } else {
             user = false;
@@ -68,7 +68,7 @@ angular.module('NoteWrangler').factory('AuthService',
         // handle success
         .success(function (data) {
           user = false;
-          $window.sessionStorage["islogged"] = false;
+          $window.sessionStorage["user"] = user;
           deferred.resolve();
         })
         // handle error
