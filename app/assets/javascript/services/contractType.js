@@ -1,3 +1,3 @@
-angular.module('NoteWrangler').factory('ContractType', function($resource){
+angular.module('app').factory('ContractType', function($resource){
   return $resource('/contractTypes/:id');
 });

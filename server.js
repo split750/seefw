@@ -50,7 +50,13 @@ passport.deserializeUser(User.deserializeUser());
 
 */
 
-// Load routes
+
+
+// --------------------------------- //
+//              Routes               //
+// --------------------------------- //
+
+
 //require('./server/routes')(app);
 
 require('./server/routes/user')(app); //user routes

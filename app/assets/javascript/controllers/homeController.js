@@ -1,4 +1,4 @@
-angular.module('NoteWrangler').controller('HomeController', function($scope, $location, AuthService){
+angular.module('app').controller('HomeController', function($scope, $location, AuthService){
   
   $scope.islogged = AuthService.isLoggedIn();
   

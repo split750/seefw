@@ -1,4 +1,4 @@
-angular.module("NoteWrangler").directive('capitalize', function() {
+angular.module("app").directive('capitalize', function() {
    return {
      require: 'ngModel',
      link: function(scope, element, attrs, modelCtrl) {

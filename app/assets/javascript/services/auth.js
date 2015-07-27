@@ -1,4 +1,4 @@
-angular.module('NoteWrangler').factory('AuthService',
+angular.module('app').factory('AuthService',
   ['$q', '$timeout', '$http', '$window',
   function ($q, $timeout, $http, $window) {
 

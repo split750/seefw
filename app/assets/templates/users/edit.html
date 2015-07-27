@@ -1,86 +1,101 @@
-<div class="content">
-  <div class="row margin-bottom">
-    <div class="col-xs-6 col-md-offset-3">
-      <h1 class="text-center blue bordered">Edit User :</h1>
-      <h2 class="text-center blue">{{user.firstName}} {{user.lastName}}</h2>
-    </div>
-  </div>
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+    <ul class="breadcrumb">
+        <li>
+            <a href="#/app/users">Users</a>
+        </li>
+        <li>
+          <a href="#/app/users/{{user._id}}">{{user.username}}</a>
+        </li>
+        <li>
+          <a class="active" href="#">Edit</a>
+        </li>
+    </ul>
+    <!-- END BREADCRUMB -->
+    <h3 class="page-title">Editing user : {{user.username}}</h3>
+</div>
 
-  <div class="row">
-    <form class="col-xs-12">
-      <h2>User information</h2>
-      <div class="row">
-        
-        <div class="col-sm-4">
-          <fieldset class="form-group">
-            <label for="firstName">First Name</label>
-            <input class="form-control" type="text" id="firstName" name="firstName" placeholder="Enter the user first name" ng-model="user.firstName">
-          </fieldset>
-        </div>
+<div class="container-fluid container-fixed-lg">
+    <!-- YOU CAN REMOVE .container-fixed-lg TO DISABLE THE FEATURE WHERE THE CONTENT
+                 ALIGNS TO THE CENTER WITHOUT STRECTHING UNGLY ON 1800PX(1080P & 4/5K MONITORS) UP WORDS SCREEN
+                  -->
+    <!-- CONTENT GOES HERE-->
 
-        <div class="col-sm-4">
-          <fieldset class="form-group">
-            <label for="lastName">Last Name</label>
-            <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Enter the user last name" ng-model="user.lastName">
-          </fieldset>
-        </div>
-        
-      </div>
-
-      <div class="row">
-
-        <div class="col-sm-6">
-          <fieldset class="form-group">
-            <label for="Picture">Picture</label>
-            <input class="form-control" type="text" id="picture" name="picture" placeholder="Enter the user picture" ng-model="user.picture">
-          </fieldset>
-        </div>
-
-      </div>
-
-      <div class="row">
+    <div class="row">
+      <form class="col-xs-12">
+        <h2>User information</h2>
+        <div class="row">
           
-        <div class="col-sm-4">
-          <fieldset class="form-group">
-            <label for="role">Role</label>
-            <input class="form-control" type="text" id="role" name="role" placeholder="Enter the user role" ng-model="user.role">
-          </fieldset>
+          <div class="col-sm-4">
+            <fieldset class="form-group">
+              <label for="firstName">First Name</label>
+              <input class="form-control" type="text" id="firstName" name="firstName" placeholder="Enter the user first name" ng-model="user.firstName">
+            </fieldset>
+          </div>
+
+          <div class="col-sm-4">
+            <fieldset class="form-group">
+              <label for="lastName">Last Name</label>
+              <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Enter the user last name" ng-model="user.lastName">
+            </fieldset>
+          </div>
+          
         </div>
 
-        <div class="col-sm-4">
-          <fieldset class="form-group">
-            <label for="attachment">Attachment</label>
-            <select class="form-control" ng-options="plant._id as plant.title for plant in plants" ng-model="user.attachment"></select>
-          </fieldset>
+        <div class="row">
+
+          <div class="col-sm-6">
+            <fieldset class="form-group">
+              <label for="Picture">Picture</label>
+              <input class="form-control" type="text" id="picture" name="picture" placeholder="Enter the user picture" ng-model="user.picture">
+            </fieldset>
+          </div>
+
         </div>
 
-      </div>
+        <div class="row">
+            
+          <div class="col-sm-4">
+            <fieldset class="form-group">
+              <label for="role">Role</label>
+              <input class="form-control" type="text" id="role" name="role" placeholder="Enter the user role" ng-model="user.role">
+            </fieldset>
+          </div>
 
-      <div class="row">
+          <div class="col-sm-4">
+            <fieldset class="form-group">
+              <label for="attachment">Attachment</label>
+              <select class="form-control" ng-options="plant._id as plant.title for plant in plants" ng-model="user.attachment"></select>
+            </fieldset>
+          </div>
 
-        <div class="col-sm-4">
-          <fieldset class="form-group">
-            <label for="mail">Mail</label>
-            <input class="form-control" type="text" id="mail" name="mail" placeholder="Enter the user mail" ng-model="user.mail">
-          </fieldset>
         </div>
 
-        <div class="col-sm-4">
-          <fieldset class="form-group">
-            <label for="tel">Tel</label>
-            <input class="form-control" type="text" id="tel" name="tel" placeholder="Enter the user tel" ng-model="user.tel">
-          </fieldset>
+        <div class="row">
+
+          <div class="col-sm-4">
+            <fieldset class="form-group">
+              <label for="mail">Mail</label>
+              <input class="form-control" type="text" id="mail" name="mail" placeholder="Enter the user mail" ng-model="user.mail">
+            </fieldset>
+          </div>
+
+          <div class="col-sm-4">
+            <fieldset class="form-group">
+              <label for="tel">Tel</label>
+              <input class="form-control" type="text" id="tel" name="tel" placeholder="Enter the user tel" ng-model="user.tel">
+            </fieldset>
+          </div>
+
         </div>
 
-      </div>
-
-      <div class="row">
-        <div class="col-sm-4">
-          <input type="submit" value="{{isSubmitting ? 'saving user...' : 'Save user'}}" class="btn btn-default" ng-click="saveUser(user)" ng-disabled="isSubmitting">
+        <div class="row">
+          <div class="col-sm-4">
+            <input type="submit" value="{{isSubmitting ? 'saving user...' : 'Save user'}}" class="btn btn-default" ng-click="saveUser(user)" ng-disabled="isSubmitting">
+          </div>
         </div>
-      </div>
 
-    </form>
-  </div>
+      </form>
+    </div>
 
 </div>

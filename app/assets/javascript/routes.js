@@ -1,4 +1,4 @@
-angular.module('NoteWrangler').config(function($routeProvider){
+angular.module('app').config(function($routeProvider){
   $routeProvider
     .when('/', {
       templateUrl: "assets/templates/home.html",

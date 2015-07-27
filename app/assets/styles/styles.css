@@ -1,41 +1,27 @@
 
-/* UI bootstrap fix */
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+/* ----------------------- */
+/*       Home page         */
+/* ----------------------- */
 
-.about-icon {
-    max-width: 95px;
+.content .home {
+    margin-left: -250px;
 }
 
-.logo {
-    display: block;
-}
-.logo img {
-    width: 200px;
-    margin-top: -22px;
+
+
+/* ----------------------- */
+/*          Navbar         */
+/* ----------------------- */
+
+
+img.brand {
+    width: 155px;
+    margin-left: 17px;
 }
 
-.navbar-header {
-    margin-bottom: 0;
-}
-
-.navbar-nav a:hover {
-    padding-bottom: 5px;
-    margin-bottom: 8px;
-    border-bottom: 2px solid #444;
-}
-
-.navbar-nav .btn {
-    margin-top: 8px;
-}
-
-.home.row {
+.page-sidebar .sidebar-header {
     background-color: rgb(19, 30, 77);
-    color: #FFF;
-    border-top: 4px solid rgb(170, 220, 20);
-    padding: 40px 0;
-    box-shadow: 0 0 15px rgba(0,0,0,0.13);
-    margin: 0px -40px;
 }
 
 .suez-bg { position: relative; }
@@ -52,76 +38,12 @@
     content: '';
 }
 
-.content {
-    position: relative;
-    max-width: 980px;
-    background-color: #FFF;
-    box-shadow: 0 0 15px rgba(0,0,0,0.13);
-    padding: 10px 40px;
-    margin: auto;
-    overflow: hidden;
-}
-
-.bordered { position: relative; }
-
-.bordered:before {
-    content: '';
-    height: 1px;
-    width: 20%;
-    background-color: rgb(19, 30, 77);
-    position: absolute;
-    left: 0;
-    top: 50%;
-}
-
-.bordered:after {
-    content: '';
-    height: 1px;
-    width: 20%;
-    background-color: rgb(19, 30, 77);
-    position: absolute;
-    right: 0;
-    top: 50%;
-}
-
-.relative {
-    position: relative;
-}
-
-.margin-bottom {
-    margin-bottom: 20px;
-}
 
 
 
 /*********** CHANGING TO FIT SUEZ COLOR ***************/
 
-body {
-    background-color: #F8F8F8;
-}
-
-.label-primary {
-    background-color: rgb(19, 30, 77);
-}
-
-.label-info {
-    background-color: rgb(19, 30, 77);
-}
 
 .green { color: rgb(170, 220, 20); }
 .blue { color: rgb(19, 30, 77); }
 
-.label.smaller {
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 1;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-footer {
-    background-color: #fff;
-    border-top: 1px solid #eee;
-    margin-top: 20px; 
-    padding-top: 20px;
-}
