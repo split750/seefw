@@ -10,10 +10,29 @@ angular.module('app')
             $urlRouterProvider
                 .otherwise('/home');
 
+            var authenticated = ['$q', 'Auth', function ($q, Auth) {
+                var deferred = $q.defer();
+                Auth.isLoggedIn(false)
+                  .then(function (isLoggedIn) {
+                    if (isLoggedIn) {
+                      deferred.resolve();
+                    } else {
+                      deferred.reject('Not logged in');
+                    }
+                  });
+                return deferred.promise;
+            }];
+
             $stateProvider
                 .state('home', {
                     url: "/home",
                     templateUrl: "assets/templates/home.html"
+                })
+
+                .state('login', {
+                    templateUrl: 'assets/templates/login.html',
+                    controller: 'loginController',
+                    url: '/login',
                 })
 
                 .state('app', {
@@ -21,6 +40,7 @@ angular.module('app')
                     url: "/app",
                     templateUrl: "tpl/app.html"
                 })
+
                 .state('app.dashboard', {
                     url: "/home",
                     templateUrl: "tpl/home.html",
@@ -41,7 +61,8 @@ angular.module('app')
                                         'assets/javascript/controllers/home.js'
                                     ]);
                                 });
-                        }]
+                        }],
+                        authenticated: authenticated
                     }
                 })
 
@@ -215,4 +236,11 @@ angular.module('app')
                 });
 
         }
-    ]);
+    ])
+
+    .run(function ($rootScope, $state, $log) {
+      $rootScope.$on('$stateChangeError', function () {
+        // Redirect user to our login page
+        $state.go('login');
+      });
+    });
