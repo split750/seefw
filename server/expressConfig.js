@@ -9,7 +9,8 @@ var localStrategy = require('passport-local').Strategy;
 var expressSession = require('express-session');
 var hash = require('bcrypt-nodejs');
 var MongoStore = require('connect-mongo')(expressSession);
-
+var cookieSession = require('cookie-session');
+var csrf = require('csurf');
 
 
 /********* DATABASE - MONGOLAB CONNECTION ********/
@@ -53,31 +54,26 @@ module.exports = function(app, express) {
   app.use(logger('dev'));
   app.use(methodOverride());
 
-  app.use(cookieParser('SuezEnvDTPEfW'));
+  app.use(cookieParser());
 
-  // Login set up
+  app.use(expressSession(
+    {
+        saveUninitialized: true, // saved new sessions
+        resave: false, // do not automatically write to the session store
+        secret: process.env.COOKIE_SECRET || "SuezEnvDTPEfW",
+        store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    }));
+
+  var env = process.env.NODE_ENV || 'development';
+  if ('development' === env || 'production' === env) {
+      app.use(csrf());
+      app.use(function(req, res, next) {
+          res.cookie('XSRF-TOKEN', req.csrfToken());
+          next();
+      });
+  }
+
   /*
-  app.use(expressSession({
-      secret: 'SuezEnvDTPEfW',
-      resave: false,
-      saveUninitialized: false,
-      store: new MongoStore({ mongooseConnection: mongoose.connection })
-  }));
-  
-  */
-  /* Login set up
-  app.use(expressSession({
-    secret: 'SuezEnvDTPEfW',
-    resave: false,
-    saveUninitialized: false
-  }));
-  */
-
-  /*
-  app.use(passport.initialize());
-  app.use(passport.session());
-  */
-
   var sessionOpts = {
     saveUninitialized: true, // saved new sessions
     resave: false, // do not automatically write to the session store
@@ -87,6 +83,7 @@ module.exports = function(app, express) {
   }
 
   app.use(expressSession(sessionOpts));
+  */
 
   app.use(passport.initialize());
   app.use(passport.session());
@@ -96,20 +93,6 @@ module.exports = function(app, express) {
   var initPassport = require('./passport/init');
   initPassport(passport);  
 
-  /*
-  var routes = require('./routes/index')(passport);
-  app.use('/', routes);
-  */
-
-  var isAuthenticated = function (req, res, next) {
-    // if user is authenticated in the session, call the next() to call the next request handler 
-    // Passport adds this method to request object. A middleware is allowed to add properties to
-    // request and response objects
-    if (req.isAuthenticated())
-        return next();
-    // if the user is not authenticated then redirect him to the login page
-    res.redirect('/');
-  };
 
 };
 

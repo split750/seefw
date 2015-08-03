@@ -20,35 +20,7 @@ require('./server/expressConfig')(app, express);
 
 
 var passport = require('passport');
-//var localStrategy = require('passport-local').Strategy;
 
-/*
-// Passport does not directly manage your session, it only uses the session.
-// So you configure session attributes (e.g. life of your session) via express
-var sessionOpts = {
-  saveUninitialized: true, // saved new sessions
-  resave: false, // do not automatically write to the session store
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  secret: 'SuezEnvDTPEfW',
-  cookie : { httpOnly: true, maxAge: 2419200000 } // configure when sessions expires
-}
-
-app.use(session(sessionOpts));
-
-app.use(passport.initialize());
-app.use(passport.session());
-*/
-
-/*
-// user schema/model
-var User = require('./server/models/userModel.js');
-
-// configure passport
-passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-*/
 
 
 
@@ -57,14 +29,14 @@ passport.deserializeUser(User.deserializeUser());
 // --------------------------------- //
 
 
-//require('./server/routes')(app);
+require('./server/routes')(app);
 
 require('./server/routes/user')(app); //user routes
 require('./server/routes/note')(app); // note routes
 require('./server/routes/category')(app); // category routes
 require('./server/routes/wasteType')(app);
 require('./server/routes/contractType')(app);
-require('./server/routes/auth')(app, passport);
+//require('./server/routes/auth')(app, passport);
 
 
 // Set engine template
