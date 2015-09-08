@@ -40,7 +40,7 @@ angular.module('app').factory('AuthService',
         .success(function (data, status) {
           if(status === 200 && data.status){
             user = true;
-            $window.sessionStorage["user"] = user;
+            $window.sessionStorage["islogged"] = true;
             deferred.resolve();
           } else {
             user = false;
@@ -68,7 +68,7 @@ angular.module('app').factory('AuthService',
         // handle success
         .success(function (data) {
           user = false;
-          $window.sessionStorage["user"] = user;
+          $window.sessionStorage["islogged"] = false;
           deferred.resolve();
         })
         // handle error
