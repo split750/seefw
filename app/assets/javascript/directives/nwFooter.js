@@ -1,4 +1,4 @@
-angular.module("app").directive('nwFooter', function(){
+angular.module("NoteWrangler").directive('nwFooter', function(){
   return {
     replace: true,
     restrict: "E",

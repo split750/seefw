@@ -1,4 +1,4 @@
-angular.module("app").directive('nwPageNav', function($rootScope, AuthService, User){
+angular.module("NoteWrangler").directive('nwPageNav', function($rootScope, AuthService, User){
   return {
     replace: true,
     restrict: "E",

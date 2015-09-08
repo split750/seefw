@@ -1,25 +1,7 @@
-<!-- START PAGE COVER -->
-<div class="container-fluid container-fixed-lg ">
-    <ul class="breadcrumb">
-        <li>
-            <a href="#/app/users">Users</a>
-        </li>
-        <li><a class="active" href="#/app/users">All</a>
-        </li>
-    </ul>
-    <!-- END BREADCRUMB -->
-</div>
-
-<div class="container-fluid container-fixed-lg">
-    <!-- YOU CAN REMOVE .container-fixed-lg TO DISABLE THE FEATURE WHERE THE CONTENT
-                 ALIGNS TO THE CENTER WITHOUT STRECTHING UNGLY ON 1800PX(1080P & 4/5K MONITORS) UP WORDS SCREEN
-                  -->
-    <!-- CONTENT GOES HERE-->
-
-
+<div class="content">
   <div class="row">
     <div class="col-xs-12">
-      <h1><span class="label label-primary">{{ users.length }}</span> Users are listed | <a class="btn btn-default" href="#/app/register">New User</a></h1>
+      <h1><span class="label label-primary">{{ users.length }}</span> Users are listed | <a class="btn btn-default" href="#/register">New User</a></h1>
     </div>
   </div>
 
@@ -38,7 +20,7 @@
     <div ng-repeat="user in users | filter:search.input" class="col-sm-6">
       <h2>
           <!--<gravatar email="user.email"></gravatar>-->
-          <a title="{{user.firstName}}" ng-href="#/app/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a>
+          <a title="{{user.firstName}}" ng-href="#/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a>
       </h2>
       <p><span class="label label-info">{{plant.title}}</span></p>
     </div>

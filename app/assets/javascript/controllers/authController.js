@@ -1,4 +1,4 @@
-angular.module('app').controller('loginController',
+angular.module('NoteWrangler').controller('loginController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
@@ -31,7 +31,7 @@ angular.module('app').controller('loginController',
 
 }]);
 
-angular.module('app').controller('logoutController',
+angular.module('NoteWrangler').controller('logoutController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
@@ -47,7 +47,7 @@ angular.module('app').controller('logoutController',
 
 }]);
 
-angular.module('app').controller('registerController',
+angular.module('NoteWrangler').controller('registerController',
   ['$scope', '$location', 'AuthService', 'Note',
   function ($scope, $location, AuthService, Note) {
 
