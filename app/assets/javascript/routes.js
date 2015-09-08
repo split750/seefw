@@ -82,7 +82,7 @@ angular.module('app').config(function($routeProvider){
 
 .run(function ($rootScope, $location, $route, AuthService, $window) {
   $rootScope.$on('$routeChangeStart', function (event, next, current) {
-    if (next.access.restricted && AuthService.isLoggedIn() === false) {
+    if (next.access.restricted && /*AuthService.isLoggedIn() === false*/ $window.sessionStorage["islogged"] === false) {
       $location.path('/login');
     }
   });
