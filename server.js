@@ -22,7 +22,7 @@ require('./server/expressConfig')(app, express);
 var passport = require('passport');
 
 
-<<<<<<< HEAD
+
 
 
 // --------------------------------- //
@@ -31,10 +31,7 @@ var passport = require('passport');
 
 
 require('./server/routes')(app);
-=======
-// Load routes
-//require('./server/routes')(app);
->>>>>>> parent of 7aed220... add theme
+
 
 require('./server/routes/user')(app); //user routes
 require('./server/routes/note')(app); // note routes
